@@ -1,0 +1,39 @@
+Stochastic Germination calculations
+
+follows Johnston and Bassel, "Identification of a bet-hedging network motif generating noise in hormone concentrations and germination propensity in Arabidopsis.", Journal of the Royal Society Interface 15.141 (2018):20180042.
+
+C code running (very) simple stochastic simulations for a chemical kinetic system; Mathematica notebook for corresponding analysis using the system size expansion; Gnuplot scripts for visualising these outputs (and producing figures for the above paper). Two small datafile provides related biological data for Fig 5.
+
+For C code, compile with GCC and run from command line e.g.
+gcc -o3 simulate-all.c -lm -o simulate-all.ce
+./simulate-all.ce
+
+------- Files
+
+simulate-all.c -- C code using stochastic simulation to produce traces and summary statistics for time behaviour of several models in the text under different parameterisations. produces simulate-[parameters].txt and simulate-trace-[label]-[parameters].txt, respectively summaries and individual traces of these simulations used in Fig 2 and Fig 6 below.
+
+stochastic-germination.nb -- Mathematica notebook applying the system size expansion to various models from the text to gather algebraic results and produce some figures (notable Fig 4B)
+
+Scripts for producing other figures:
+
+Fig 1 -- (illustration)
+
+Fig 2 --
+  plot-fig2.sh -- Gnuplot script that plots time behaviour of stochastic simulations for base model 
+
+Fig 3 --
+  plot-fig3.sh -- Gnuplot script that plots CV for ABA system with a scan through parameter space (doesn't use data, but takes expression from stochastic-germination.nb Mathematics notebook)
+
+Fig 4 --
+  plot-fig4a.sh -- Gnuplot script that plots stats for ABA system with scans through parameter space (doesn't use data, but takes expressions from from stochastic-germination.nb Mathematics notebook)
+
+Fig 5 --
+  fig5-data-[i and ii].txt -- data from germination propensity experiments
+  plot-fig5.sh -- Gnuplot script to plot data
+
+Fig 6C-E --
+  plot-fig6c-e.sh -- Gnuplot script to plot traces for the alternative model structures
+
+Fig 6F-G --
+  plot-fig6f-g.sh -- Gnuplot script that plots stats for ABA system with scans through parameter space (doesn't use data, but takes expressions from from stochastic-germination.nb Mathematics notebook)
+
